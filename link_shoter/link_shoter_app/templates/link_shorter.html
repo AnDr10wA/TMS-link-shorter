@@ -1,17 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Link shorter{% endblock %}
+
 {% block content %}
-Hello World!!
 
-{% if form %}
-<form method = 'POST'>
-    {% csrf_token %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-3">
+              <div class="dropdown drop">
+                <button class="btn dropdown-toggle drop_btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Последние ссылки
+                 </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8000/link/{{links.1.output_link}}">{{ links.1.output_link }}</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8000/link/{{links.2.output_link}}">{{ links.2.output_link }}</a></li>
+                    <li><a class="dropdown-item" href="http://127.0.0.1:8000/link/{{links.3.output_link}}">{{ links.3.output_link }}</a></li>
+                    </ul>
+              </div>
 
-    {{form.input_link}}
-   <input type = 'submit' >
+        </div>
+        <div class="col-md-6">
+            {% if form %}<form method = 'POST'>
+            {% csrf_token %}
+            <div class="inp">
+                {{form.input_link}}
+            </div>
+            <input class="btn sub_btn" type = 'submit' value="укоротить" >
+        </form>
+            <p></p>
+            <p></p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
 
-</form>
-    {% endif %}
-{% for i in links  %}
-<a href="http://127.0.0.1:8000/link/{{i.output_link}}">{{i.output_link}}</a></br>
-{% endfor %}
+                <div class="col-md-3 col-sm-12 outp">
+                    <div>ваша короткая ссылка:</div>
+                    <input type="text"  class="form-control  input-qty" value="{{links.0.output_link}}" id="myInput" readonly>
+                     <button class="btn btn_cop" onclick="myFunction()">Copy</button>
+                 </div>
+                </div>
+            </div>
+
+        <div class="col-md-3">
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {%  endblock %}

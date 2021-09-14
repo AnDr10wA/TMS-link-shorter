@@ -1,11 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+{% load static %}
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Base</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>{% block title %}Link shorter{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-{% block content %}
-{% endblock %}
+<div class="wrapper">
+    <header class="header_">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-3">
+                    <h1 class="form-label align-middle text-center">link shorter</h1>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col_md-3"></div>
+                <div class="col_md-3"></div>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+                <div class="fot col-md-4 col-sm-12">
+                    <p></p>
+                    Групповое дипломное задание<br>
+                    Гитхаб проекта: <a href="https://github.com/AnDr10wA/TMS-link-shorter">https://github.com/AnDr10wA/TMS-link-shorter</a><p></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<script src="{% static 'js/js.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </body>
 </html>

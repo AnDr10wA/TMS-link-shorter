@@ -26,7 +26,8 @@ def input_link(request):
         else:
             return render(request, 'link_shorter.html', {'error': 'Data is not valid'})
     else:
-        return render(request, 'link_shorter.html', {'form': form,'links':shot_link})
+        shot_link = shot_link[::-1]
+        return render(request, 'link_shorter.html', {'form': form, 'links': shot_link})
 
 def relink(request, data):
 
